@@ -450,11 +450,9 @@ for ifile in files : #{ Loop over root files
         break
 
     # loop over events in this file
-    i = 0
     for event in events: #{ Loop over events in root files
         if options.maxevents > 0 and nevents > options.maxevents :
             break
-        i += 1
         nevents += 1
 
         if nevents % 1000 == 0 : 
