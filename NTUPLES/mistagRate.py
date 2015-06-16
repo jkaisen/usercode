@@ -123,6 +123,8 @@ h_jetsAK8PrunMass = Handle("std::vector<float>")
 l_jetsAK8PrunMass = ("jetsAK8", "jetAK8prunedMass" )
 h_jetsAK8FiltMass = Handle("std::vector<float>")
 l_jetsAK8FiltMass = ("jetsAK8", "jetAK8filteredMass" )
+h_jetsAK8SoftDropMass = Handle("std::vector<float>")
+l_jetsAK8SoftDropMass = ("jetsAK8", "jetAK8softDropMass" )
 h_jetsAK8Tau1 = Handle("std::vector<float>")
 l_jetsAK8Tau1 = ("jetsAK8", "jetAK8tau1" )
 h_jetsAK8Tau2 = Handle("std::vector<float>")
@@ -283,6 +285,7 @@ for ifile in files : #{ Loop over root files
         event.getByLabel ( l_jetsAK8TrimMass, h_jetsAK8TrimMass )
         event.getByLabel ( l_jetsAK8PrunMass, h_jetsAK8PrunMass )
         event.getByLabel ( l_jetsAK8FiltMass, h_jetsAK8FiltMass )
+        event.getByLabel ( l_jetsAK8SoftDropMass, h_jetsAK8SoftDropMass )
         event.getByLabel ( l_jetsAK8Tau1, h_jetsAK8Tau1 )
         event.getByLabel ( l_jetsAK8Tau2, h_jetsAK8Tau2 )
         event.getByLabel ( l_jetsAK8Tau3, h_jetsAK8Tau3 )
@@ -307,6 +310,7 @@ for ifile in files : #{ Loop over root files
         ak8JetsGoodTrimMass = []
         ak8JetsGoodPrunMass = []
         ak8JetsGoodFiltMass = []
+        ak8JetsGoodSDropMass = []
         ak8JetsGoodTau1 = []
         ak8JetsGoodTau2 = []
         ak8JetsGoodTau3 = []
@@ -345,6 +349,7 @@ for ifile in files : #{ Loop over root files
             AK8TrimmedM = h_jetsAK8TrimMass.product()
             AK8PrunedM = h_jetsAK8PrunMass.product()
             AK8FilteredM = h_jetsAK8FiltMass.product()
+            AK8SDropM = h_jetsAK8SoftDropMass.product()
             AK8Tau1 = h_jetsAK8Tau1.product()
             AK8Tau2 = h_jetsAK8Tau2.product()
             AK8Tau3 = h_jetsAK8Tau3.product()
@@ -447,6 +452,7 @@ for ifile in files : #{ Loop over root files
             ak8JetsGoodTrimMass.append( AK8TrimmedM[ak8Jet])
             ak8JetsGoodPrunMass.append( AK8PrunedM[ak8Jet])
             ak8JetsGoodFiltMass.append( AK8FilteredM[ak8Jet])
+            ak8JetsGoodSDropMass.append( AK8SDropM[ak8Jet])
             ak8JetsGoodTau1.append( AK8Tau1[ak8Jet])
             ak8JetsGoodTau2.append( AK8Tau2[ak8Jet])
             ak8JetsGoodTau3.append( AK8Tau3[ak8Jet])
@@ -611,20 +617,29 @@ for ifile in files : #{ Loop over root files
             jet2tau32Val = -1
 
         # different cuts, finding where the top-tag is, and different working points for the top-tagger
-        failMinMass0    = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] < 50 
-        failMinMass1    = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] < 50
-        failMinMassLow0 = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] < 30
-        failMinMassLow1 = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] < 30
-        fail2Nsub0      = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodNSubJets[0] < 2
-        fail2Nsub1      = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodNSubJets[1] < 2
-        fail3Nsub0      = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodNSubJets[0] < 3
-        fail3Nsub1      = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodNSubJets[1] < 3
+        #failMinMass0    = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] < 50 
+        #failMinMass1    = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] < 50
+        #failMinMassLow0 = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] < 30
+        #failMinMassLow1 = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] < 30
+        #fail2Nsub0      = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodNSubJets[0] < 2
+        #fail2Nsub1      = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodNSubJets[1] < 2
+        #fail3Nsub0      = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodNSubJets[0] < 3
+        #fail3Nsub1      = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodNSubJets[1] < 3
+
+        failMinMass0    = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] < 50
+        failMinMass1    = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] < 50
+        failMinMassLow0 = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] < 30
+        failMinMassLow1 = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] < 30
+        fail2Nsub0      = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodNSubJets[0] < 2
+        fail2Nsub1      = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodNSubJets[1] < 2
+        fail3Nsub0      = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodNSubJets[0] < 3
+        fail3Nsub1      = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodNSubJets[1] < 3
 
         bTag0 = jet0_maxB
         bTag1 = jet1_maxB
             
-        topTag0        = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2
-        topTag1        = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2
+        topTag0        = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2 and jet1tau32Val < 0.7
+        topTag1        = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2 and jet2tau32Val < 0.7
 
         topTag0WP1        = jet1tau32Val < 0.7 and bTag0 > 0.244 and ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2
         topTag1WP1        = jet2tau32Val < 0.7 and bTag1 > 0.244 and ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2
