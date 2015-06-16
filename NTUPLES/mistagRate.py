@@ -641,6 +641,9 @@ for ifile in files : #{ Loop over root files
         topTag0        = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2 and jet1tau32Val < 0.7
         topTag1        = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2 and jet2tau32Val < 0.7
 
+        AntiTag0 = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] < 50 
+        AntiTag1 = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] < 50 
+
         topTag0WP1        = jet1tau32Val < 0.7 and bTag0 > 0.244 and ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2
         topTag1WP1        = jet2tau32Val < 0.7 and bTag1 > 0.244 and ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2
         topTag0WP2        = jet1tau32Val < 0.6 and bTag0 > 0.244 and ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2
@@ -662,8 +665,8 @@ for ifile in files : #{ Loop over root files
         if passType11KinCuts :
             x = ROOT.gRandom.Uniform(1.0)
             if x < 0.5 :
-                if not topTag0 :
-                    h_topProbePt.Fill( ak8JetsGoodPt[1], Weight )
+                if AntiTag0 :
+                    h_topProbePt.Fill ( ak8JetsGoodPt[1], Weight )
                     if topTag1 :
                         h_topTagPt.Fill( ak8JetsGoodPt[1], Weight )
                 if failMinMass0 :
@@ -700,7 +703,7 @@ for ifile in files : #{ Loop over root files
 
 
             if x >= 0.5 :
-                if not topTag1 :
+                if AntiTag1 :
                     h_topProbePt.Fill( ak8JetsGoodPt[0], Weight )
                     if topTag0 :
                         h_topTagPt.Fill( ak8JetsGoodPt[0], Weight )
