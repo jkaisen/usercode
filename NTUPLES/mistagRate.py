@@ -180,7 +180,9 @@ h_topProbePtSDT      = ROOT.TH1F("topProbePtSDT", "Top Probe Pt", 400,  0,  2000
 h_topTagPtFJT        = ROOT.TH1F("topTagPtFJT", "Top Tag Pt", 400,  0,  2000 )
 h_topProbePtFJT      = ROOT.TH1F("topProbePtFJT", "Top Probe Pt", 400,  0,  2000 )
 h_topTagPtNMT        = ROOT.TH1F("topTagPtNMT", "Top Tag Pt", 400,  0,  2000 )
-h_topProbePtNMT      = ROOT.TH1F("topProbePtNMT", "Top Probe Pt", 400,  0,  2000 )
+h_topProbePtNMT      = ROOT.TH1F("topProbePtNMT", "Top Probe Pt", 400,  0,  2000)
+h_topTagPtFree        = ROOT.TH1F("topTagPtFree", "Top Tag Pt", 400,  0,  2000 )
+h_topProbePtFree      = ROOT.TH1F("topProbePtFree", "Top Probe Pt", 400,  0,  2000 )
 h_testTagPt       = ROOT.TH1F("testTagPt", "Top Tag Pt", 400,  0,  2000 )
 h_testProbePt     = ROOT.TH1F("testProbePt", "Top Probe Pt", 400,  0,  2000 )
 h_lowmMinTagPt    = ROOT.TH1F("lowmMinTagPt", "Top Tag Pt", 400,  0,  2000 )
@@ -196,6 +198,149 @@ h_lowmMin2BTagPt  = ROOT.TH1F("lowmMin2BTagPt", "Top Tag Pt", 400,  0,  2000 )
 h_lowmMin2BProbePt= ROOT.TH1F("lowmMin2BProbePt", "Top Probe Pt", 400,  0,  2000 )
 h_antiBTagPt      = ROOT.TH1F("antiBTagPt", "Top Tag Pt", 400,  0,  2000 ) 
 h_antiBProbePt    = ROOT.TH1F("antiBProbePt", "Top Probe Pt", 400,  0,  2000 ) 
+h_pt    = ROOT.TH1F("Pt", "AK8 Pt", 400,  0,  2000 )
+
+h_topProbemmSD        = ROOT.TH1F("topProbemmSD", "minMass", 100,  0,  200 )
+h_topProbeak8mSD      = ROOT.TH1F("topProbeak8mSD", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmSD        = ROOT.TH1F("topProbeSDmSD", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32SD      = ROOT.TH1F("topProbeTau32SD", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiSD        = ROOT.TH1F("topProbePhiSD", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYSD      = ROOT.TH1F("topProbeYSD", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmFJ        = ROOT.TH1F("topProbemmFJ", "minMass", 100,  0,  200 )
+h_topProbeak8mFJ      = ROOT.TH1F("topProbeak8mFJ", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmFJ        = ROOT.TH1F("topProbeSDmFJ", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32FJ      = ROOT.TH1F("topProbeTau32FJ", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiFJ        = ROOT.TH1F("topProbePhiFJ", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYFJ      = ROOT.TH1F("topProbeYFJ", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmNM        = ROOT.TH1F("topProbemmNM", "minMass", 100,  0,  200 )
+h_topProbeak8mNM      = ROOT.TH1F("topProbeak8mNM", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmNM        = ROOT.TH1F("topProbeSDmNM", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32NM      = ROOT.TH1F("topProbeTau32NM", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiNM        = ROOT.TH1F("topProbePhiNM", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYNM      = ROOT.TH1F("topProbeYNM", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmSDT        = ROOT.TH1F("topProbemmSDT", "minMass", 100,  0,  200 )
+h_topProbeak8mSDT      = ROOT.TH1F("topProbeak8mSDT", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmSDT        = ROOT.TH1F("topProbeSDmSDT", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32SDT      = ROOT.TH1F("topProbeTau32SDT", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiSDT        = ROOT.TH1F("topProbePhiSDT", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYSDT      = ROOT.TH1F("topProbeYSDT", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmFJT        = ROOT.TH1F("topProbemmFJT", "minMass", 100,  0,  200 )
+h_topProbeak8mFJT      = ROOT.TH1F("topProbeak8mFJT", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmFJT        = ROOT.TH1F("topProbeSDmFJT", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32FJT      = ROOT.TH1F("topProbeTau32FJT", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiFJT        = ROOT.TH1F("topProbePhiFJT", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYFJT      = ROOT.TH1F("topProbeYFJT", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmNMT        = ROOT.TH1F("topProbemmNMT", "minMass", 100,  0,  200 )
+h_topProbeak8mNMT      = ROOT.TH1F("topProbeak8mNMT", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmNMT        = ROOT.TH1F("topProbeSDmNMT", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32NMT      = ROOT.TH1F("topProbeTau32NMT", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiNMT        = ROOT.TH1F("topProbePhiNMT", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYNMT      = ROOT.TH1F("topProbeYNMT", "eta", 100,  -5.0,  5.0 )
+
+
+h_topProbemmFree        = ROOT.TH1F("topProbemmFree", "minMass", 100,  0,  200 )
+h_topProbeak8mFree      = ROOT.TH1F("topProbeak8mFree", "AK8 Mass", 100,  0,  300 )
+h_topProbeSDmFree        = ROOT.TH1F("topProbeSDmFree", "Soft Drop Mass", 100,  0,  300 )
+h_topProbeTau32Free      = ROOT.TH1F("topProbeTau32Free", "Tau32", 100,  0.0,  1.0 )
+h_topProbePhiFree        = ROOT.TH1F("topProbePhiFree", "Phi", 100,  -3.14,  3.14 )
+h_topProbeYFree      = ROOT.TH1F("topProbeYFree", "eta", 100,  -5.0,  5.0 )
+
+
+
+
+h_topTagPtSD.Sumw2()
+h_topProbePtSD.Sumw2()
+h_topTagPtFJ.Sumw2()
+h_topProbePtFJ.Sumw2()
+h_topTagPtNM.Sumw2()
+h_topProbePtNM.Sumw2()
+h_topTagPtSDT.Sumw2()
+h_topProbePtSDT.Sumw2()
+h_topTagPtFJT.Sumw2()
+h_topProbePtFJT.Sumw2()
+h_topTagPtNMT.Sumw2()
+h_topProbePtNMT.Sumw2()
+h_topTagPtFree.Sumw2()
+h_topProbePtFree.Sumw2()
+h_testTagPt.Sumw2()
+h_testProbePt.Sumw2()
+h_lowmMinTagPt.Sumw2()
+h_lowmMinTagWP1Pt.Sumw2()
+h_lowmMinTagWP2Pt.Sumw2()
+h_lowmMinTagWP3Pt.Sumw2()
+h_lowmMinTagWP4Pt.Sumw2()
+h_lowmMinTagWP5Pt.Sumw2()
+h_lowmMinProbePt.Sumw2()
+h_lowmMinBTagPt.Sumw2()
+h_lowmMinBProbePt.Sumw2()
+h_lowmMin2BTagPt.Sumw2()
+h_lowmMin2BProbePt.Sumw2()
+h_antiBTagPt.Sumw2()
+h_antiBProbePt.Sumw2()
+h_pt.Sumw2()
+
+h_topProbemmSD.Sumw2()
+h_topProbeak8mSD.Sumw2()
+h_topProbeSDmSD.Sumw2()
+h_topProbeTau32SD.Sumw2()
+h_topProbePhiSD.Sumw2()
+h_topProbeYSD.Sumw2()
+
+h_topProbemmFJ.Sumw2()
+h_topProbeak8mFJ.Sumw2()
+h_topProbeSDmFJ.Sumw2()
+h_topProbeTau32FJ.Sumw2()
+h_topProbePhiFJ.Sumw2()
+h_topProbeYFJ.Sumw2()
+
+
+h_topProbemmNM.Sumw2()
+h_topProbeak8mNM.Sumw2()
+h_topProbeSDmNM.Sumw2()
+h_topProbeTau32NM.Sumw2()
+h_topProbePhiNM.Sumw2()
+h_topProbeYNM.Sumw2()
+
+
+h_topProbemmSDT.Sumw2()
+h_topProbeak8mSDT.Sumw2()
+h_topProbeSDmSDT.Sumw2()
+h_topProbeTau32SDT.Sumw2()
+h_topProbePhiSDT.Sumw2()
+h_topProbeYSDT.Sumw2()
+
+
+h_topProbemmFJT.Sumw2()
+h_topProbeak8mFJT.Sumw2()
+h_topProbeSDmFJT.Sumw2()
+h_topProbeTau32FJT.Sumw2()
+h_topProbePhiFJT.Sumw2()
+h_topProbeYFJT.Sumw2()
+h_topProbemmNMT.Sumw2()
+h_topProbeak8mNMT.Sumw2()
+h_topProbeSDmNMT.Sumw2()
+h_topProbeTau32NMT.Sumw2()
+h_topProbePhiNMT.Sumw2()
+h_topProbeYNMT.Sumw2()
+h_topProbemmFree.Sumw2()
+h_topProbeak8mFree.Sumw2()
+h_topProbeSDmFree.Sumw2()
+h_topProbeTau32Free.Sumw2()
+h_topProbePhiFree.Sumw2()
+h_topProbeYFree.Sumw2()
+
+
+
 
 
 #JET CORRECTIONS
@@ -247,6 +392,7 @@ NGoodAntiTaggedEventsFJT = 0
 NGoodAntiTagTopTagPairsFJT = 0
 NGoodAntiTaggedEventsNMT = 0
 NGoodAntiTagTopTagPairsNMT = 0
+NGoodAntiTagTopTagPairsFree = 0
 NPassDiJetCut = 0
 NPassptCut = 0
 NPassetaCut = 0
@@ -355,8 +501,13 @@ for ifile in files : #{ Loop over root files
         ak8JetsGoodTopSubjetIndex2 = []
         ak8JetsGoodTopSubjetIndex3 = []
 
+        AK8SubJetsBDisc = []
+        AK8SubJetsPt = []
+        AK8SubJetsEta = []
+        AK8SubJetsPhi = []
 
-        if len( h_jetsAK8Pt.product()) > 0 :
+
+        if len( h_jetsAK8Pt.product()) > 0 and len( h_subjetsAK8BDisc.product() ) > 0:
 
             AK8Pt = h_jetsAK8Pt.product()
             AK8Eta = h_jetsAK8Eta.product()
@@ -389,26 +540,18 @@ for ifile in files : #{ Loop over root files
             AK8TopSubjetIndex1 = h_jetsAK8TopSubjetIndex1.product()
             AK8TopSubjetIndex2 = h_jetsAK8TopSubjetIndex2.product()
             AK8TopSubjetIndex3 = h_jetsAK8TopSubjetIndex3.product()
+            AK8SubJetsBDisc = h_subjetsAK8BDisc.product()
+            AK8SubJetsPt = h_subjetsAK8Pt.product()
+            AK8SubJetsEta = h_subjetsAK8Eta.product()
+            AK8SubJetsPhi = h_subjetsAK8Phi.product()
             if options.deweightFlat :
                 pthat = 0.0
                 if h_generator.product().hasBinningValues() :
                     pthat = h_generator.product().binningValues()[0]
                     evWeight = 1/pow(pthat/15.,4.5)
-
-
-        AK8SubJetsBDisc = []
-        AK8SubJetsPt = []
-        AK8SubJetsEta = []
-        AK8SubJetsPhi = []
-        
-        if len( h_subjetsAK8BDisc.product() ) > 0 : 
-            AK8SubJetsBDisc = h_subjetsAK8BDisc.product()
-            AK8SubJetsPt = h_subjetsAK8Pt.product()
-            AK8SubJetsEta = h_subjetsAK8Eta.product()
-            AK8SubJetsPhi = h_subjetsAK8Phi.product()
-            
         
         for ak8Jet in range(0,len(AK8Pt)):
+            BadStuff = False
             AK8JECFromB2GAnaFW = AK8JEC[ak8Jet]
             AK8P4Raw = ROOT.TLorentzVector()
             AK8P4Raw.SetPtEtaPhiM( AK8Pt[ak8Jet] , AK8Eta[ak8Jet], AK8Phi[ak8Jet], AK8Mass[ak8Jet])
@@ -436,7 +579,7 @@ for ifile in files : #{ Loop over root files
                     print '   bad jet pt = {0:6.2f}, y = {1:6.2f}, phi = {2:6.2f}, m = {3:6.2f}'.format (
                             AK8P4Raw.Perp(), AK8P4Raw.Rapidity(), AK8P4Raw.Phi(), AK8P4Raw.M()
                             )
-                    continue
+                continue
             if options.verbose :
                   print '   raw jet pt = {0:6.2f}, y = {1:6.2f}, phi = {2:6.2f}, m = {3:6.2f}'.format (
                         AK8P4Raw.Perp(), AK8P4Raw.Rapidity(), AK8P4Raw.Phi(), AK8P4Raw.M()
@@ -464,14 +607,17 @@ for ifile in files : #{ Loop over root files
                     print '===================='
                     print ' Catastrophic failure. Index is out of range. Setup is completely wrong.'
                     print '===================='
-                    exit(1)
+                    BadStuff = True
+                    break
+            if BadStuff :
+                break
 
             if options.verbose :
                 print '    ak8TopSubjetIndex0[ak8Jet] '+str(AK8TopSubjetIndex0[ak8Jet])
                 print '    ak8TopSubjetIndex1[ak8Jet] '+str(AK8TopSubjetIndex1[ak8Jet])
                 print '    ak8TopSubjetIndex2[ak8Jet] '+str(AK8TopSubjetIndex2[ak8Jet])
                 print '    ak8TopSubjetIndex3[ak8Jet] '+str(AK8TopSubjetIndex3[ak8Jet])
-
+            h_pt.Fill(AK8P4Raw.Perp(), evWeight)
 
             #$ Cuts based on pt and rapidity
             if AK8P4Raw.Perp() < options.minAK8Pt or abs(AK8P4Raw.Rapidity()) > options.maxAK8Rapidity :
@@ -517,7 +663,9 @@ for ifile in files : #{ Loop over root files
             if ak8JetsGood[goodAK8].Perp() < options.minAK8Pt :
                 continue
             #subJetBDiscs.append([])
-
+            if BadStuff : 
+                break
+            BadStuff = False
             sbdisc0 = -1.
             sbdisc1 = -1.
             sbdisc2 = -1.
@@ -546,7 +694,10 @@ for ifile in files : #{ Loop over root files
                     print '===================='
                     print ' Catastrophic failure. Index is out of range. Setup is completely wrong.'
                     print '===================='
-                    exit(1)
+                    BadStuff = True
+                    break
+            if BadStuff :
+                break
             if options.verbose :
                 print 'ak8JetsGoodTopSubjetIndex0[goodAK8] '+str(ak8JetsGoodTopSubjetIndex0[goodAK8])
                 print 'ak8JetsGoodTopSubjetIndex1[goodAK8] '+str(ak8JetsGoodTopSubjetIndex1[goodAK8])
@@ -682,12 +833,14 @@ for ifile in files : #{ Loop over root files
         topTag0        = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2 and jet1tau32Val < 0.7
         topTag1        = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] > 50 and ak8JetsGoodNSubJets[1] > 2 and jet2tau32Val < 0.7
 
-        AntiTag0SD = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200 and ak8JetsGoodMinMass[0] < 50 
-        AntiTag1SD = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200 and ak8JetsGoodMinMass[1] < 50
+        AntiTag0SD = ak8JetsGoodSDropMass[0] > 140 and ak8JetsGoodSDropMass[0] < 200# and ak8JetsGoodMinMass[0] < 50 
+        AntiTag1SD = ak8JetsGoodSDropMass[1] > 140 and ak8JetsGoodSDropMass[1] < 200# and ak8JetsGoodMinMass[1] < 50
         AntiTag0NM = ak8JetsGoodMinMass[0] < 50 
         AntiTag1NM = ak8JetsGoodMinMass[1] < 50
-        AntiTag0FJ = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] < 50 
-        AntiTag1FJ = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250 and ak8JetsGoodMinMass[1] < 5
+        AntiTag0FJ = ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250# and ak8JetsGoodMinMass[0] < 50 
+        AntiTag1FJ = ak8JetsGoodMass[1] > 140 and ak8JetsGoodMass[1] < 250# and ak8JetsGoodMinMass[1] < 50
+        MinMass0 = ak8JetsGoodMinMass[0] < 50
+        MinMass1 = ak8JetsGoodMinMass[1] < 50
         Tau32Cut0 = jet1tau32Val > .7
         Tau32Cut1 = jet2tau32Val > .7
         topTag0WP1        = jet1tau32Val < 0.7 and bTag0 > 0.244 and ak8JetsGoodMass[0] > 140 and ak8JetsGoodMass[0] < 250 and ak8JetsGoodMinMass[0] > 50 and ak8JetsGoodNSubJets[0] > 2
@@ -712,39 +865,86 @@ for ifile in files : #{ Loop over root files
             NPassAllCuts = NPassAllCuts + 1
             x = ROOT.gRandom.Uniform(1.0)
             if x < 0.5 :
-                if AntiTag0SD :
+                h_topProbePtFree.Fill( ak8JetsGoodPt[1], Weight )
+                h_topProbemmFree.Fill( ak8JetsGoodMinMass[1], Weight )
+                h_topProbeak8mFree.Fill( ak8JetsGoodMass[1], Weight )
+                h_topProbeSDmFree.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                h_topProbeTau32Free.Fill( jet2tau32Val, Weight )
+                h_topProbePhiFree.Fill( ak8JetsGoodPhi[1], Weight)
+                h_topProbeYFree.Fill( ak8JetsGoodY[1], Weight) 
+                if topTag1 :
+                    NGoodAntiTagTopTagPairsFree = NGoodAntiTagTopTagPairsFree + 1
+                    h_topTagPtFree.Fill( ak8JetsGoodPt[1], Weight )
+                if AntiTag0SD and MinMass0 :
                     NGoodAntiTaggedEventsSD = NGoodAntiTaggedEventsSD + 1
                     h_topProbePtSD.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmSD.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mSD.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmSD.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32SD.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiSD.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYSD.Fill( ak8JetsGoodY[1], Weight)
                     if topTag1 :
                         NGoodAntiTagTopTagPairsSD = NGoodAntiTagTopTagPairsSD + 1
                         h_topTagPtSD.Fill( ak8JetsGoodPt[1], Weight )
                 if AntiTag0NM :
                     NGoodAntiTaggedEventsNM = NGoodAntiTaggedEventsNM + 1
                     h_topProbePtNM.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmNM.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mNM.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmNM.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32NM.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiNM.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYNM.Fill( ak8JetsGoodY[1], Weight) 
                     if topTag1 :
                         NGoodAntiTagTopTagPairsNM = NGoodAntiTagTopTagPairsNM + 1
                         h_topTagPtNM.Fill( ak8JetsGoodPt[1], Weight )
-                if AntiTag0FJ :
+                if AntiTag0FJ and MinMass0 :
                     NGoodAntiTaggedEventsFJ = NGoodAntiTaggedEventsFJ + 1
                     h_topProbePtFJ.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmFJ.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mFJ.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmFJ.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32FJ.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiFJ.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYFJ.Fill( ak8JetsGoodY[1], Weight) 
                     if topTag1 :
                         NGoodAntiTagTopTagPairsFJ = NGoodAntiTagTopTagPairsFJ + 1
                         h_topTagPtFJ.Fill( ak8JetsGoodPt[1], Weight )
                 if AntiTag0SD and Tau32Cut0 :
                     NGoodAntiTaggedEventsSDT = NGoodAntiTaggedEventsSDT + 1
                     h_topProbePtSDT.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmSDT.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mSDT.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmSDT.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32SDT.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiSDT.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYSDT.Fill( ak8JetsGoodY[1], Weight) 
                     if topTag1 :
                         NGoodAntiTagTopTagPairsSDT = NGoodAntiTagTopTagPairsSDT + 1
                         h_topTagPtSDT.Fill( ak8JetsGoodPt[1], Weight )
-                if AntiTag0NM  and Tau32Cut0 :
+                if Tau32Cut0 :
                     NGoodAntiTaggedEventsNMT = NGoodAntiTaggedEventsNMT + 1
                     h_topProbePtNMT.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmNMT.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mNMT.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmNMT.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32NMT.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiNMT.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYNMT.Fill( ak8JetsGoodY[1], Weight) 
                     if topTag1 :
                         NGoodAntiTagTopTagPairsNMT = NGoodAntiTagTopTagPairsNMT + 1
                         h_topTagPtNMT.Fill( ak8JetsGoodPt[1], Weight )
                 if AntiTag0FJ and Tau32Cut0 :
                     NGoodAntiTaggedEventsFJT = NGoodAntiTaggedEventsFJT + 1
                     h_topProbePtFJT.Fill ( ak8JetsGoodPt[1], Weight )
+                    h_topProbemmFJT.Fill( ak8JetsGoodMinMass[1], Weight )
+                    h_topProbeak8mFJT.Fill( ak8JetsGoodMass[1], Weight )
+                    h_topProbeSDmFJT.Fill( ak8JetsGoodSDropMass[1], Weight )  
+                    h_topProbeTau32FJT.Fill( jet2tau32Val, Weight )
+                    h_topProbePhiFJT.Fill( ak8JetsGoodPhi[1], Weight)
+                    h_topProbeYFJT.Fill( ak8JetsGoodY[1], Weight) 
+ 
                     if topTag1 :
                         NGoodAntiTagTopTagPairsFJT = NGoodAntiTagTopTagPairsFJT + 1
                         h_topTagPtFJT.Fill( ak8JetsGoodPt[1], Weight )
@@ -782,39 +982,85 @@ for ifile in files : #{ Loop over root files
 
 
             if x >= 0.5 :
-                if AntiTag1SD :
+                h_topProbePtFree.Fill( ak8JetsGoodPt[0], Weight)
+                h_topProbemmFree.Fill( ak8JetsGoodMinMass[0], Weight )
+                h_topProbeak8mFree.Fill( ak8JetsGoodMass[0], Weight )
+                h_topProbeSDmFree.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                h_topProbeTau32Free.Fill( jet1tau32Val, Weight )
+                h_topProbePhiFree.Fill( ak8JetsGoodPhi[0], Weight)
+                h_topProbeYFree.Fill( ak8JetsGoodY[0], Weight)  
+                if topTag0 :
+                    NGoodAntiTagTopTagPairsFree = NGoodAntiTagTopTagPairsFree + 1
+                    h_topTagPtFree.Fill(ak8JetsGoodPt[0], Weight )
+                if AntiTag1SD and MinMass1 :
                     NGoodAntiTaggedEventsSD = NGoodAntiTaggedEventsSD + 1
                     h_topProbePtSD.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmSD.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mSD.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmSD.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32SD.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiSD.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYSD.Fill( ak8JetsGoodY[0], Weight) 
                     if topTag0 :
                         NGoodAntiTagTopTagPairsSD = NGoodAntiTagTopTagPairsSD + 1
                         h_topTagPtSD.Fill( ak8JetsGoodPt[0], Weight )
-                if AntiTag1NM :
+                if AntiTag1NM:
                     NGoodAntiTaggedEventsNM = NGoodAntiTaggedEventsNM + 1
                     h_topProbePtNM.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmNM.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mNM.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmNM.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32NM.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiNM.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYNM.Fill( ak8JetsGoodY[0], Weight) 
                     if topTag0 :
                         NGoodAntiTagTopTagPairsNM = NGoodAntiTagTopTagPairsNM + 1
                         h_topTagPtNM.Fill( ak8JetsGoodPt[0], Weight )
-                if AntiTag1FJ :
+                if AntiTag1FJ and MinMass1 :
                     NGoodAntiTaggedEventsFJ = NGoodAntiTaggedEventsFJ + 1
                     h_topProbePtFJ.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmFJ.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mFJ.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmFJ.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32FJ.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiFJ.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYFJ.Fill( ak8JetsGoodY[0], Weight)
                     if topTag0 :
                         NGoodAntiTagTopTagPairsFJ = NGoodAntiTagTopTagPairsFJ + 1
                         h_topTagPtFJ.Fill( ak8JetsGoodPt[0], Weight )
                 if AntiTag1SD and Tau32Cut1 :
                     NGoodAntiTaggedEventsSDT = NGoodAntiTaggedEventsSDT + 1
                     h_topProbePtSDT.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmSDT.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mSDT.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmSDT.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32SDT.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiSDT.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYSDT.Fill( ak8JetsGoodY[0], Weight)
                     if topTag0 :
                         NGoodAntiTagTopTagPairsSDT = NGoodAntiTagTopTagPairsSDT + 1
                         h_topTagPtSDT.Fill( ak8JetsGoodPt[0], Weight )
-                if AntiTag1NM and Tau32Cut1 :
+                if Tau32Cut1 :
                     NGoodAntiTaggedEventsNMT = NGoodAntiTaggedEventsNMT + 1
                     h_topProbePtNMT.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmNMT.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mNMT.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmNMT.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32NMT.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiNMT.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYNMT.Fill( ak8JetsGoodY[0], Weight)
                     if topTag0 :
                         NGoodAntiTagTopTagPairsNMT = NGoodAntiTagTopTagPairsNMT + 1
                         h_topTagPtNMT.Fill( ak8JetsGoodPt[0], Weight )
                 if AntiTag1FJ and Tau32Cut1 :
                     NGoodAntiTaggedEventsFJT = NGoodAntiTaggedEventsFJT + 1
                     h_topProbePtFJT.Fill( ak8JetsGoodPt[0], Weight )
+                    h_topProbemmFJT.Fill( ak8JetsGoodMinMass[0], Weight )
+                    h_topProbeak8mFJT.Fill( ak8JetsGoodMass[0], Weight )
+                    h_topProbeSDmFJT.Fill( ak8JetsGoodSDropMass[0], Weight )  
+                    h_topProbeTau32FJT.Fill( jet1tau32Val, Weight )
+                    h_topProbePhiFJT.Fill( ak8JetsGoodPhi[0], Weight)
+                    h_topProbeYFJT.Fill( ak8JetsGoodY[0], Weight)
                     if topTag0 :
                         NGoodAntiTagTopTagPairsFJT = NGoodAntiTagTopTagPairsFJT + 1
                         h_topTagPtFJT.Fill( ak8JetsGoodPt[0], Weight )
@@ -881,6 +1127,9 @@ print "Good AntiTag TopTag Jet Pairs: " + str(NGoodAntiTagTopTagPairsFJT)
 print "~~~~~~~~ No Mass req ~~~~~~~"
 print "Good AntiTagged Jets: " + str(NGoodAntiTaggedEventsNMT)
 print "Good AntiTag TopTag Jet Pairs: " + str(NGoodAntiTagTopTagPairsNMT)
+print " "
+print "~~~~~~~~ No Anti-tag ~~~~~~~"
+print "TopTag Jet Pairs: " + str(NGoodAntiTagTopTagPairsFree)
 f.cd()
 f.Write()
 f.Close()
