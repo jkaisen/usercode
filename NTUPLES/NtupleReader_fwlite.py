@@ -576,22 +576,22 @@ for ifile in files : #{ Loop over root files
             for imuon, muon in enumerate(muonPt): #{ Loop over all muons in event
                 NMu = NMu + 1
                 if muonPt[imuon] < options.minMuonPt :  #$ Muon cuts
-		    continue
-		else: 
+                    continue
+                else: 
                     NPassMuonPtCut = NPassMuonPtCut + 1
-		if abs(muonEta[imuon]) > options.maxMuonEta :
+                if abs(muonEta[imuon]) > options.maxMuonEta :
                     continue
-		else:
+                else:
                     NPassMuonEtaCut = NPassMuonEtaCut + 1
-		if muonDz[imuon] > 5.0:
+                if muonDz[imuon] > 5.0:
                     continue
-		else:
+                else:
                     NPassMuonDzCut = NPassMuonDzCut + 1
-		if muonTight[imuon] == 0 :
+                if muonTight[imuon] == 0 :
                     continue
-		else:
+                else:
                     NPassMuonTightCut = NPassMuonTightCut + 1
-		NPassMuonTot += 1 
+                NPassMuonTot += 1 
                 goodmuonPt.append(muonPt[imuon])
                 goodmuonEta.append(muonEta[imuon])
                 goodmuonPhi.append(muonPhi[imuon])
@@ -672,9 +672,9 @@ for ifile in files : #{ Loop over root files
                     ie5x5sigma = electronfullsiee[ielectron]
 
                     if iePt > options.minElectronPt:
-		        NPassElPtCut = NPassElPtCut + 1
-		    else:
-			continue
+                        NPassElPtCut = NPassElPtCut + 1
+                    else:
+                        continue
                     if abs(ieEta) < options.maxElectronEta : #$ Electron eta cut (based on options)
                         NPassElEtaCut = NPassElEtaCut + 1
                     else:
@@ -741,7 +741,7 @@ for ifile in files : #{ Loop over root files
                         else :
                             continue                       
                     if goodElectron == True : 
-			NPassGoodElCut = NPassGoodElCut + 1 
+                        NPassGoodElCut = NPassGoodElCut + 1 
                     if elKey[ielectron] != 0 and elKey[ielectron] != 18446744073709551616 :
                         NPassElKeyCut+=1
                         goodelectronPt.append( iePt )
@@ -884,7 +884,7 @@ for ifile in files : #{ Loop over root files
         
         # This array stores all of our favorite jets , those that meet the selection criteria
         ak4JetsGood = []
-	ak4JetsGoodbDiscrim = []
+        ak4JetsGoodbDiscrim = []
         # For selecting leptons, look at 2-d cut of dRMin, ptRel of
         # lepton and nearest jet that has pt > 30 GeV
         dRMin = 9999.0
@@ -1036,24 +1036,24 @@ for ifile in files : #{ Loop over root files
             if jetP4.Perp() > options.minAK4Pt:   #$ Cuts for Pt and Rapidity
                 NPassMinAK4PtCut = NPassMinAK4PtCut + 1
             else:
-		if options.verbose :
+                if options.verbose :
                    print '   jet failed kinematic cuts'
                 continue
             if abs(jetP4.Rapidity()) < options.maxAK4Rapidity:                  
                 NPassMaxAK4RapidityCut = NPassMaxAK4RapidityCut + 1
             else:
-		if options.verbose :
+                if options.verbose :
                    print '   jet failed kinematic cuts'
                 continue
 
-	   # NPassAK4KinTot += 1
+           # NPassAK4KinTot += 1
             if SemiLeptonic :
                 dR = jetP4.DeltaR(theLepton )
             if Leptonic :
                 dR1 = jetP4.DeltaR(Lepton1 )
                 dR2 = jetP4.DeltaR(Lepton2 )
             ak4JetsGood.append(jetP4)
-	    ak4JetsGoodbDiscrim.append(AK4CSV[i])
+            ak4JetsGoodbDiscrim.append(AK4CSV[i])
             if options.verbose :
                 print '   corrjet pt = {0:6.2f}, y = {1:6.2f}, phi = {2:6.2f}, m = {3:6.2f}, bdisc = {4:6.2f}'.format (
                     jetP4.Perp(), jetP4.Rapidity(), jetP4.Phi(), jetP4.M(), AK4CSV[i] )
@@ -1107,7 +1107,7 @@ for ifile in files : #{ Loop over root files
                     nearestJetbDiscrim = ak4JetsGoodbDiscrim[i] 
         #$ Here, we have the AK4 jets and the leptons, and skip if we do not find a jet near the lepton(s)
         if SemiLeptonic :
-	    NPassWbEvent+= 1 
+            NPassWbEvent+= 1 
             if inearestJet < 0 :
                 if options.verbose :
                     print '   no nearest jet found, skipping'
@@ -1120,12 +1120,12 @@ for ifile in files : #{ Loop over root files
                         nearestJetP4.Perp(), nearestJetP4.Rapidity(), nearestJetP4.Phi(), nearestJetP4.M(), nearestJetbDiscrim )   
 
         if Leptonic :
-	    NPassWbEvent += 1
+            NPassWbEvent += 1
 
-	    if inearestJet >= 0 :
-		NPassNearJCut += 1
-	    if i2nearestJet >= 0:
-		NPassNearJ2Cut += 1	
+            if inearestJet >= 0 :
+                NPassNearJCut += 1
+            if i2nearestJet >= 0:
+                NPassNearJ2Cut += 1        
 
             if inearestJet < 0 or i2nearestJet < 0:
                 if options.verbose :
@@ -1180,7 +1180,7 @@ for ifile in files : #{ Loop over root files
             if pass2D == False :
                 continue
             else:
-		NPass2DCut += 1
+                NPass2DCut += 1
                 if muJets :
                    NPassMuon2DCut += 1
                 elif eleJets :
@@ -1243,7 +1243,7 @@ for ifile in files : #{ Loop over root files
                 print '2d cut 2 : dRMin = {0:6.2f}, ptRel = {1:6.2f}'.format( dR2Min, ptRel2 )
                 print '>>>>>>>>>>>>>>'
             if pass2D2 :
-		NPass2D2Cut += 1
+                NPass2D2Cut += 1
                 if dimuonCandidate :
                     NPassMuon2DCut += 1
                 elif dielectronCandidate :
@@ -1460,8 +1460,8 @@ for ifile in files : #{ Loop over root files
                         # - Jet Mass > 100 GeV
                         if AK8nSubJets[i] >= 3:
                             NPassAK8nSubJetsCut = NPassAK8nSubJetsCut + 1
-			else:
-			    continue
+                        else:
+                            continue
                         if AK8minmass[i] > 50:
                             NPassAK8MinMassCut = NPassAK8MinMassCut + 1
                         else:
@@ -1545,8 +1545,8 @@ for ifile in files : #{ Loop over root files
                         ),
                 if minMass > options.minMassCut:
                     NPasstMinMassCut = NPasstMinMassCut + 1
-		else:
-		    continue
+                else:
+                    continue
                 if mAK8SDrop > options.mAK8GroomedCut:
                     NPasstMAK8GroomedCut = NPasstMAK8GroomedCut + 1
                 else: 
@@ -1768,42 +1768,43 @@ print ' Pass Dz Cut: ' + str(NPassElDz)
 print ' Pass ooEmooP Cut: ' + str(NPassElEmooP)
 print ' Pass Good Cut: ' +str(NPassGoodElCut)
 print ' Pass Electron Key Cut: ' + str(NPassElKeyCut)
-print '========================================='
-print 'Number of AK4 Jets: ' +str(NAK4Jets)
-print ' Pass Good Cut: ' +str(NPassGoodJetAK4Cut)
-print ' Pass Pt Cut: ' +str(NPassMinAK4PtCut)
-print ' Pass Rapidity Cut: ' +str(NPassMaxAK4RapidityCut)
-print '========================================='
-print '~~~~~~~~~  W + b jet Selection  ~~~~~~~~~'
-print ' Passed events with nearest jet: ' +str(NPassWbEvent)
-print ' Pass Found Near Jet 1 Cut:  ' +str(NPassNearJCut)
-if options.selection == 0:
-   print ' Pass Found Near Jet 2 Cut: ' +str(NPassNearJ2Cut)
-print ' Pass 2D Cut: ' +str(NPass2DCut)
-if options.selection == 0:
-   print ' Pass 2D Second Cut: ' +str(NPass2D2Cut)
-print ' Muon Pass 2D Cut: ' +str(NPassMuon2DCut)
-print ' Electron Pass 2D Cut: ' +str(NPassEl2DCut)
-print ' Pass b Disc Min Cut: ' +str(NPassBDiscMinCut)
-if options.selection == 0:
-   print ' Pass b Disc Lepton 2 Min Cut: ' +str(NPassBDisc2MinCut)
-   print ' Muon Pass b Disc: ' +str(NPassMuonBCut)
-   print ' Electron Pass b Disc Cut: ' +str(NPassElBCut)
-print '========================================='
-print 'Number of AK8 Jets: ' +str(NAK8Jets)
-print ' Pass Good Cut: ' +str(NPassGoodJetAK8Cut)
-print ' Pass Pt Cut: ' +str(NPassMinRawAK8PtCut)
-print ' Pass Rapidity Cut: ' +str(NPassMaxAK8RapidityCut)
-
-print ' Pass Semi Leptonic DR Cut: ' + str(NPassSemiLeptonicDRjlCut)
-if options.selection == 2:
-   print ' Pass n Sub Jets Cut: ' +str(NPassAK8nSubJetsCut)
-   print ' Pass Min Mass Cut: ' +str(NPassAK8MinMassCut) 
-   print ' Pass Corrected Mass Cut: ' +str(NPassAK8CorrMassCut)
-print ' Pass Good  Min Pt Cut: ' +str(NPassminAK8PtCut)
-print ' Pass Min Mass2 Cut: ' +str(NPasstMinMassCut)
-print ' Pass Groomed Cut: ' +str(NPasstMAK8GroomedCut)
-print ' Pass tau32 Cut: ' +str(NPasstau23Cut)
+if options.selection == 1 or options.selection == 0 :
+    print '========================================='
+    print 'Number of AK4 Jets: ' +str(NAK4Jets)
+    print ' Pass Good Cut: ' +str(NPassGoodJetAK4Cut)
+    print ' Pass Pt Cut: ' +str(NPassMinAK4PtCut)
+    print ' Pass Rapidity Cut: ' +str(NPassMaxAK4RapidityCut)
+    print '========================================='
+    print '~~~~~~~~~  W + b jet Selection  ~~~~~~~~~'
+    print ' Passed events with nearest jet: ' +str(NPassWbEvent)
+    print ' Pass Found Near Jet 1 Cut:  ' +str(NPassNearJCut)
+    if options.selection == 0:
+        print ' Pass Found Near Jet 2 Cut: ' +str(NPassNearJ2Cut)
+    print ' Pass 2D Cut: ' +str(NPass2DCut)
+    if options.selection == 0:
+        print ' Pass 2D Lepton 2 Cut: ' +str(NPass2D2Cut)
+    print ' Muon Pass 2D Cut: ' +str(NPassMuon2DCut)
+    print ' Electron Pass 2D Cut: ' +str(NPassEl2DCut)
+    print ' Pass b Disc Min Cut: ' +str(NPassBDiscMinCut)
+    if options.selection == 0:
+        print ' Pass b Disc Lepton 2 Min Cut: ' +str(NPassBDisc2MinCut)
+    print ' Muon Pass b Disc: ' +str(NPassMuonBCut)
+    print ' Electron Pass b Disc Cut: ' +str(NPassElBCut)
+if options.selection == 1 or options.selection == 2 :
+    print '========================================='
+    print 'Number of AK8 Jets: ' +str(NAK8Jets)
+    print ' Pass Good Cut: ' +str(NPassGoodJetAK8Cut)
+    print ' Pass Pt Cut: ' +str(NPassMinRawAK8PtCut)
+    print ' Pass Rapidity Cut: ' +str(NPassMaxAK8RapidityCut)
+    print ' Pass Semi Leptonic DR Cut: ' + str(NPassSemiLeptonicDRjlCut)
+    if options.selection == 2:
+        print ' Pass n Sub Jets Cut: ' +str(NPassAK8nSubJetsCut)
+        print ' Pass Min Mass Cut: ' +str(NPassAK8MinMassCut) 
+        print ' Pass Corrected Mass Cut: ' +str(NPassAK8CorrMassCut)
+    print ' Pass Good  Min Pt Cut: ' +str(NPassminAK8PtCut)
+    print ' Pass Min Mass2 Cut: ' +str(NPasstMinMassCut)
+    print ' Pass Groomed Cut: ' +str(NPasstMAK8GroomedCut)
+    print ' Pass tau32 Cut: ' +str(NPasstau23Cut)
 print '========================================='
 print 'End Awesome Cut Flow Table'
 print '========================================='
