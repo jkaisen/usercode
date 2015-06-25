@@ -456,6 +456,14 @@ NPassMuonTightCut = 0
 NPassElPtCut = 0
 NPassElEtaCut = 0
 NPassGoodElCut = 0
+NPassEldEtaIn = 0
+NPassEldPhiIn= 0
+NPassEl5x5= 0
+NPassElHoE = 0
+NPassElD0 = 0
+NPassElDz = 0
+NPassElEmooP = 0
+NPassElKeyCut = 0
 NPassGoodJetAK4Cut = 0
 NPassMinAK4PtCut = 0
 NPassMaxAK4RapidityCut = 0
@@ -655,6 +663,14 @@ for ifile in files : #{ Loop over root files
                     iePhi = electronPhi[ielectron]
                     ieMass = electronMass[ielectron]
                     ieCharge = electronCharge[ielectron]
+                    iedEtaIn = electrondEtaIn[ielectron]
+                    iedPhiIn = electrondPhiIn[ielectron]
+                    ieHoE = electronHoE[ielectron]
+                    ieD0 = electronD0[ielectron]
+                    ieDz = electronDz[ielectron]
+                    ieEmooP = electronooEmooP[ielectron]
+                    ie5x5sigma = electronfullsiee[ielectron]
+
                     if iePt > options.minElectronPt:
 		        NPassElPtCut = NPassElPtCut + 1
 		    else:
@@ -663,9 +679,71 @@ for ifile in files : #{ Loop over root files
                         NPassElEtaCut = NPassElEtaCut + 1
                     else:
                         continue
-                    goodElectron = True#electronTight[ ielectron ]
-                    if goodElectron == True and elKey[ielectron] != 0 and elKey[ielectron] != 18446744073709551616 :
-			NPassGoodElCut = NPassGoodElCut + 1
+                    goodElectron = False #$ Electron ID Cut (current WP Loose : https://twiki.cern.ch/twiki/bin/view/CMS/CutBasedElectronIdentificationRun2 )
+                    if abs( ieEta ) <= 1.479 :
+                        if abs(iedEtaIn) < 0.009277 :
+                            NPassEldEtaIn+=1
+                        else :
+                            continue
+                        if abs(iedPhiIn ) < 0.094739 :
+                            NPassEldPhiIn+=1
+                        else :
+                            continue
+                        if ie5x5sigma < 0.010331 :
+                            NPassEl5x5+= 1
+                        else :
+                            continue
+                        if ieHoE <  0.093068 :
+                            NPassElHoE+= 1
+                        else :
+                            continue
+                        if abs(ieD0) <  0.035904 :
+                            NPassElD0+=1
+                        else :
+                            continue
+                        if abs(ieDz) <  0.075496 :
+                            NPassElDz+=1
+                        else :
+                            continue
+                        if ieEmooP <  0.189968 :
+                            NPassElEmooP+=1
+                            goodElectron = True
+                        else :
+                            continue
+                    else :
+                        if abs(iedEtaIn) < 0.009833 :
+                            NPassEldEtaIn+=1
+                        else :
+                            continue
+                        if abs(iedPhiIn ) < 0.149934 :
+                            NPassEldPhiIn+=1
+                        else :
+                            continue 
+                        if ie5x5sigma < 0.031838 :
+                            NPassEl5x5+= 1
+                        else :
+                            continue
+                        if ieHoE <  0.115754 :
+                            NPassElHoE+= 1
+                        else :
+                            continue
+                        if abs(ieD0) <  0.099266 :
+                            NPassElD0+=1
+                        else :
+                            continue
+                        if abs(ieDz) <  0.197897 :
+                            NPassElDz+=1
+                        else :
+                            continue
+                        if ieEmooP <  0.140662 :
+                            NPassElEmooP+=1
+                            goodElectron = True
+                        else :
+                            continue                       
+                    if goodElectron == True : 
+			NPassGoodElCut = NPassGoodElCut + 1 
+                    if elKey[ielectron] != 0 and elKey[ielectron] != 18446744073709551616 :
+                        NPassElKeyCut+=1
                         goodelectronPt.append( iePt )
                         goodelectronEta.append( ieEta )
                         goodelectronPhi.append( iePhi )
@@ -1128,7 +1206,6 @@ for ifile in files : #{ Loop over root files
             
             #@ First Lepton 2D Cuts
             pass2D1 = ptRel > 20.0 or dRMin > 0.4
-
             if options.verbose :
                 print '>>>>>>>>>>>>>>'
                 print '2d cut 1 : dRMin = {0:6.2f}, ptRel = {1:6.2f}'.format( dRMin, ptRel )
@@ -1592,12 +1669,7 @@ for ifile in files : #{ Loop over root files
                 nuCandP4 = ROOT.TLorentzVector()#(metPx, metPy ,0.0, metPt)
                 nuCandP4.SetPxPyPzE(metPx, metPy, 0.0, metPt)
                 solution, nuz1, nuz2 = solve_nu( vlep=theLepton, vnu=nuCandP4 )
-                # If there is at least one real solution, pick it up
-
-
-                
-
-                
+                # If there is at least one real solution, pick it up                              
                 if solution :
                     if options.verbose : 
                         print '--- Have a solution --- '
@@ -1686,7 +1758,16 @@ print '========================================='
 print 'Number of Electrons: ' +str(NEl)       
 print ' Pass Pt Cut: ' +str(NPassElPtCut)
 print ' Pass Eta Cut: ' +str(NPassElEtaCut)
+print ' ~~~~~~~~ Electron ID Loose WP ~~~~~~~~~~'
+print ' Pass dEtaIn Cut: ' +str(NPassEldEtaIn)
+print ' Pass dPhiIn Cut: ' +str(NPassEldPhiIn)
+print ' Pass 5x5 Sigma eta^{2} Cut: ' + str(NPassEl5x5)
+print ' Pass H over E Cut: ' + str(NPassElHoE)
+print ' Pass D0 Cut: ' + str(NPassElD0)
+print ' Pass Dz Cut: ' + str(NPassElDz)
+print ' Pass ooEmooP Cut: ' + str(NPassElEmooP)
 print ' Pass Good Cut: ' +str(NPassGoodElCut)
+print ' Pass Electron Key Cut: ' + str(NPassElKeyCut)
 print '========================================='
 print 'Number of AK4 Jets: ' +str(NAK4Jets)
 print ' Pass Good Cut: ' +str(NPassGoodJetAK4Cut)
@@ -1722,7 +1803,7 @@ if options.selection == 2:
 print ' Pass Good  Min Pt Cut: ' +str(NPassminAK8PtCut)
 print ' Pass Min Mass2 Cut: ' +str(NPasstMinMassCut)
 print ' Pass Groomed Cut: ' +str(NPasstMAK8GroomedCut)
-print ' Pass tau23 Cut: ' +str(NPasstau23Cut)
+print ' Pass tau32 Cut: ' +str(NPasstau23Cut)
 print '========================================='
 print 'End Awesome Cut Flow Table'
 print '========================================='
